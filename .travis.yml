@@ -16,10 +16,10 @@ after_success:
 - yarn --version
 - git config --global user.email "sateeshkumar.m@gmail.com"
 - git config --global user.name "smathangi"
-- git remote add upstream "https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git"
 - export GIT_TAG=$(jq -r ".name" package.json)
+- echo GIT_TAG
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
-- git push origin $GIT_TAG
+- git push https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git --tags
 deploy:
   provider: npm
   email: sateeshkumar.m@gmail.com
