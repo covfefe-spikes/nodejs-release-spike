@@ -1,9 +1,6 @@
 language: node_js
 node_js:
 - 8.11.1
-- lts/*
-- 10.15.2
-- node
 cache: yarn
 before_install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash -s --
@@ -19,7 +16,7 @@ after_success:
 - yarn --version
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "Travis CI"
-- git remote add upstream "https://${GH_TOKEN}@github.com/hmcts/nodejs-release-spike.git"
+- git remote add upstream "https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git"
 - export GIT_TAG=$(jq -r ".name" package.json)
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
 - git push origin $GIT_TAG
@@ -27,8 +24,8 @@ deploy:
   provider: npm
   email: sateeshkumar.m@gmail.com
   api_key:
-    secure: A5x/n2+0O0qxoJhvY3kzOBgWNR4NTUXmWwOMeA/ncrFAFCPzzV/YqTskk4nrFe82MqAmTqPSEO2xg5RdOAsOm1rkpsQbH7LX7Hrqv72S25+apG2BCKksMDYTpaTsglGBm4qtINuGNew3Erg3AWlIKgrS5M7pJjHKUdxPJfW1OaqKyz0mRva3elShPEJGx0uOnEn89mOZgKptqDfGr1AET8HcRSYfSrvZ7my7+1C922iHjXkTuRztw3X5XVHeFuasERP1b5hNeuJqCbPl+rpLWjMM5eeBFLEVTCppZxyrNYGvJ+2gr900kQE5jM9gKyYzwxYHd/unSMla6d/PbH7D9oQMPiZYMN3zrpmndwyzUynMBxfx1y5rCSK2JHQ8rMz/IndRn3IW0z3TH/NSEB8fVzgVTsYC+fC3+qlMsl8t8pWprsxBT5ZplXr3DQhyErmX+f5SE4f16/u/fFYfQdkpeWZlT11V/SQX6Dx2ktbxebeW+cGKlonXtOubeaGlhdwJKPoKSwoWUUeTr7zMAcBOurvih+H4HD1nElhg77gP1DyNhiQUFaBmyKEV/53vrU13oi9HhBMyVZb98zYLA4NUfEt2/ZDbepikhd2/Nmx9PH8oV78aGqBG4HPCgO0Gb86dIefpksfE3t2IkYPlUHkfWFpjVys6u1N5Ct+CIs2VDPQ=
+    secure: GltERxR3MbT5BkkP/hrj2V81TUHUHwb7nHYNXe3aAO18ic7V7wmxf/20CPREjprIe8gVEy/MTC7hpZcmHRSgOCc2W8C/VlO5KyjzkDjmPUioVcKdVSizF5yN0zHdpo+2RVH5NiAo8Xy3UISVAcpn/9P0o5zsf3c5AbLeaCt979Jf3vEydyL2TthS0TH9tLuWSsiepYN+MJt/2+1C1w0fQBpAbAXmDkyPQApaENxQz+XvhnyJNFdBs67tVoryvaFd33HfIaBr8T6uwJPxMV9NFG/xubwEgDkdNwYFAvSZs/KXPcjBiPpBU2uhKZsTXPCNKd9rDQ+U3i8rX//0zxf04eyN717V+1+lQ9u9j0h3Pt6tFQ3DDRyxEwICV0ehLt+WSMdd67F78u7885DPkNeqQEVuhyEwInkP0XUzVy1rJrmfMoFoq2zGRFKsaOKXdiXsudLkUpHx3BOT+vEzXfZFgb7yn0yQBXRRxw20QexKQFMd6CAjcwJSbGkkdBAghNt72EMEPVYqGo+BeoSjlJgyYR//ymjduDtLDo2Nlxq/NGfo1+U9HRJpPMngClN8DrV4zVqkMwiVxSPonr6bHVtLxVUXZnEgrlgIXIxfKB3z8bNNIdLPPMOnBQ86qcoEmxI5pzQ+jNiq49ro050596qiNS342FG7Kl5harmNhqVOYtc=
   on:
     tags: true
-    repo: hmcts/nodejs-release-spike
+    repo: covfefe-spikes/nodejs-release-spike
   skip_cleanup: true
