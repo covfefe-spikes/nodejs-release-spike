@@ -14,8 +14,9 @@ script:
 - yarn build
 after_success:
 - yarn --version
-- git config --global user.email "travis@travis-ci.org"
+- git config --global user.email "sateeshkumar.m@gmail.com"
 - git config --global user.name "Travis CI"
+- echo "git token: ${GH_TOKEN}"
 - git remote add upstream "https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git"
 - export GIT_TAG=$(jq -r ".name" package.json)
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
