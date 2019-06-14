@@ -25,3 +25,11 @@ deploy:
     tags: true
     repo: covfefe-spikes/nodejs-release-spike
   skip_cleanup: true
+- provider: npm
+  email: sateeshkumar.m@gmail.com
+  api_key:
+  secure: r6yq2YWamHmCh+QxhulKdkJqYiJFaRy0qfwVpZvlKfnH23TJfEq0tkuH5rXUSKyr9H9aESs369y6Gh1ao5/K0jfXJPgYzLau8c46gMc7xrbA5oXCuZ7pw74X7J66D7mnVv0uSBKbK2UrlIY4t3ekyZ2PG8DA2p6Tu+4aFWaeyo6JgHjrU08H3YnxIOUjwpUOqhsfhR9CSc0Yf8AZsnrfA37wJrQABb6WYSeUVOMsLwP82P8N3DrsxA8AyoeoTJ01DQDRctxBLrP89uwA5oVtdsJKOdC49pN/heQSfbSRuBaT3lNokLUrrQgM7YOpjNxUqxiAhPq2u6ZcxL7U8jaBWOVMTzhDgQn+inpkjIZSeo/tP111LWFoZqOELFl5ihgEStTS1Q1BYFTyK/KB/mZj9CZxtgcCuUA6iyhE17EOLb1smeiGtz6z09f8KFcUhklmkeXbkgDtUYv10khXvclT7RDCurtAARHoqt8eo+NmI/5Tn06cjelxfdRB3iJ2Ra93XoEiZR/eTERKWczQGi6+VU/0Db0dsLCuyKOKiPLZRdM5AwHnyjB/8ZjLJTmS2BYay6VbBMh+A3jpND9sIN41DA2NYKn3fUTGfwY1AXeaKB1rFpTQG9fF3uATKV/l4VkiSfLmMxPpQn/UKAm+PveLyAPfph4Pjhchi+SkcqreoEQ=
+  on:
+    tags: true
+    repo: hmcts/nodejs-release-spike
+  skip_cleanup: true
