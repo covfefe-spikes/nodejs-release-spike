@@ -13,10 +13,7 @@ git config --global user.name "smathangi"
 git fetch --tags
 export GIT_TAG=$(jq -r ".version" package.json)
 
-echo $TRAVIS_PULL_REQUEST
-echo $GIT_TAG
-if [[ !"$GIT_TAG" == *"-prerelease" ]]; then echo non-prelease; fi
-if [[ "$TRAVIS_PULL_REQUEST" == "true" && !"$GIT_TAG" == *"-prerelease" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" != "false" && "$GIT_TAG" != *"-prerelease" ]]; then
       echo PR branch must have a prerelease version to tag
     else
      createTag

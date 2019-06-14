@@ -28,11 +28,3 @@ deploy:
       tags: true
       repo: covfefe-spikes/nodejs-release-spike
       skip_cleanup: true
-  - provider: release
-    api_key: $GH_TOKEN
-    file: "RELEASE-NOTES.md"
-    prerelease: $PRERELEASE
-    on:
-      tags: true
-      repo: covfefe-spikes/nodejs-release-spike
-      skip_cleanup: true
