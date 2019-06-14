@@ -13,7 +13,9 @@ script:
 - yarn --version
 - yarn build
 after_success:
-- '[ "$TRAVIS_BRANCH" = "master" -o "$TRAVIS_PULL_REQUEST" = "true" ] && bash create-release-tag.sh'
+- '[ "$TRAVIS_BRANCH" = "master" -o "$TRAVIS_PULL_REQUEST" = "true" ] && ./create-release-tag.sh'
+- if [[ "$TRAVIS_TAG" == *"-prerelease" ]]; then export PRERELEASE=true; else export PRERELEASE=false; fi
+- echo prerelease $PRERELEASE
 before_deploy:
 - if [[ "$TRAVIS_TAG" == *"-prerelease" ]]; then export PRERELEASE=true; else export PRERELEASE=false; fi
 - echo prerelease $PRERELEASE
