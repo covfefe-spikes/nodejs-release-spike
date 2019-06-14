@@ -16,7 +16,6 @@ after_success:
 - '[ "$TRAVIS_BRANCH" = "master" -o "$TRAVIS_PULL_REQUEST" = "true" ] && ./create-release-tag.sh'
 before_deploy:
 - if [[ "$TRAVIS_TAG" == *"-prerelease" ]]; then export PRERELEASE=true; else export PRERELEASE=false; fi
-- echo prerelease $PRERELEASE
 deploy:
   - provider: npm
     email: sateeshkumar.m@gmail.com
@@ -26,7 +25,7 @@ deploy:
       tags: true
       repo: covfefe-spikes/nodejs-release-spike
     skip_cleanup: true
-  - provider: release
+  - provider: releases
     api_key: $GH_TOKEN
     file: "RELEASE-NOTES.md"
     prerelease: $PRERELEASE
