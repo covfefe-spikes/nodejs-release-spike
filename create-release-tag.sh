@@ -6,14 +6,15 @@ git fetch --tags
 export GIT_TAG=$(jq -r ".version" package.json)
 
 if [[ "$TRAVIS_PULL_REQUEST" == "true" && "$GIT_TAG" != *"-prerelease" ]]; then
-        echo "PULL REQUEST must have a prerelease version to tag"
-        exit 1;
+      echo PR branch must have a prerelease version to tag
     else
-        echo tag with non-prerelease;
+     createTag();
 fi
-if git tag v$GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER" 2>/dev/null; then
+
+createTag() {
+  if git tag v$GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER" 2>/dev/null; then
     git push https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git --tags
-    echo pushed new tag v$GIT_TAG
   else
     echo Tag v$GIT_TAG already exists!;
-fi
+  fi
+}
