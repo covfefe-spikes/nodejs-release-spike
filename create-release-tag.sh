@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 git config --global user.email "sateeshkumar.m@gmail.com"
 git config --global user.name "smathangi"
 git fetch --tags
 export GIT_TAG=$(jq -r ".version" package.json)
 
-if [[ "$TRAVIS_PULL_REQUEST" == "true" ]] && [[ "$GIT_TAG" != *"-prerelease" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" == "true" && "$GIT_TAG" != *"-prerelease" ]]; then
     echo "PULL REQUEST must have a prerelease version to tag"
     exit
 fi
