@@ -13,10 +13,14 @@ script:
 - yarn --version
 - yarn build
 after_success:
-- sh ./create-release-tag.sh
+- '[ "$TRAVIS_BRANCH" = "master" -o "$TRAVIS_PULL_REQUEST" = "true" ] && sh ./create-release-tag.sh'
+before_deploy:
+- if [ $TRAVIS_TAG == "*-prerelease" ]; then export PRERELEASE=true; fi
+- echo prerelease $PRERELEASE
 deploy:
   provider: npm
   email: sateeshkumar.m@gmail.com
+  prerelease: "$PRERELEASE"
   api_key:
     secure: GltERxR3MbT5BkkP/hrj2V81TUHUHwb7nHYNXe3aAO18ic7V7wmxf/20CPREjprIe8gVEy/MTC7hpZcmHRSgOCc2W8C/VlO5KyjzkDjmPUioVcKdVSizF5yN0zHdpo+2RVH5NiAo8Xy3UISVAcpn/9P0o5zsf3c5AbLeaCt979Jf3vEydyL2TthS0TH9tLuWSsiepYN+MJt/2+1C1w0fQBpAbAXmDkyPQApaENxQz+XvhnyJNFdBs67tVoryvaFd33HfIaBr8T6uwJPxMV9NFG/xubwEgDkdNwYFAvSZs/KXPcjBiPpBU2uhKZsTXPCNKd9rDQ+U3i8rX//0zxf04eyN717V+1+lQ9u9j0h3Pt6tFQ3DDRyxEwICV0ehLt+WSMdd67F78u7885DPkNeqQEVuhyEwInkP0XUzVy1rJrmfMoFoq2zGRFKsaOKXdiXsudLkUpHx3BOT+vEzXfZFgb7yn0yQBXRRxw20QexKQFMd6CAjcwJSbGkkdBAghNt72EMEPVYqGo+BeoSjlJgyYR//ymjduDtLDo2Nlxq/NGfo1+U9HRJpPMngClN8DrV4zVqkMwiVxSPonr6bHVtLxVUXZnEgrlgIXIxfKB3z8bNNIdLPPMOnBQ86qcoEmxI5pzQ+jNiq49ro050596qiNS342FG7Kl5harmNhqVOYtc=
   on:
