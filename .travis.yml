@@ -13,11 +13,18 @@ script:
 - yarn --version
 - yarn build
 after_success:
+# CREATE GIT TAG
+- ./create-release-tag.sh
+# CREATE GIT TAG
 - git config --global user.email "sateeshkumar.m@gmail.com"
 - git config --global user.name "smathangi"
+- git fetch --tags
 - export GIT_TAG=$(jq -r ".version" package.json)
-- git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
-- git push https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git --tags
+- if git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER" 2>/dev/null; then
+    git push https://${GH_TOKEN}@github.com/covfefe-spikes/nodejs-release-spike.git --tags
+  else
+    echo Tag already exists!
+fi
 deploy:
   provider: npm
   email: sateeshkumar.m@gmail.com
