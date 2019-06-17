@@ -1,6 +1,6 @@
 {
   "name": "@covfefe2/nodejs-release-spike",
-  "version": "1.1.8",
+  "version": "1.1.7-prerlease",
 
   "engines": {
     "yarn": "^1.12.3",
@@ -11,11 +11,11 @@
   "scripts": {
     "start": "node index.js",
     "build": "echo 'no source files specified'",
-    "test": "echo 'Error: no test fafwfawe'"
+    "test": "echo 'Error: no test specified'"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hmcts/nodejs-release-spike/.git"
   },  
-  "homepage": "https://github.com/hmcts/nodejs-release-spike/#readme"  
+  "homepage": "https://github.com/hmcts/nodejs-release-spike/#readme"
 }
