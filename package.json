@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "echo 'no source files specified'",
-    "test": "echo 'Error: no test specified'"
+    "test": "echo 'Error: no test specifieddcdscs'"
   },
   "repository": {
     "type": "git",
