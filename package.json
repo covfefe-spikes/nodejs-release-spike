@@ -1,6 +1,6 @@
 {
   "name": "@covfefe2/nodejs-release-spike",
-  "version": "1.1.22-1",
+  "version": "1.1.23-prerelease",
   "engines": {
     "yarn": "^1.12.3",
     "npm": "^5.6.0"
