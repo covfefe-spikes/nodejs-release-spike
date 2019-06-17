@@ -15,8 +15,8 @@ git config --global user.name "smathangi"
 export PACKAGE_VERSION=$(jq -r ".version" package.json)
 export TAG_NAME="v$PACKAGE_VERSION"
 
-if [[ "$TRAVIS_PULL_REQUEST" != "false" && "$PACKAGE_VERSION" != *"-prerelease" ]]; then
-      echo PR branch must have a prerelease version to tag
+if [[ "$TRAVIS_PULL_REQUEST" != "false" && "$PACKAGE_VERSION" != *RDM*-prerelease ]]; then
+      echo PR branch must have a prerelease version with RDM number to tag (Eg: 1.2.3-RDM-4685-prerelease)
     else
      createTag
 fi
