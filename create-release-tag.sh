@@ -10,8 +10,8 @@ createTag() {
     fi
 }
 
-git config --global user.email "sateeshkumar.m@gmail.com"
-git config --global user.name "smathangi"
+git config --global user.email "sateeshkumaradas.m@gmail.com"
+git config --global user.name "smathangifasd"
 export PACKAGE_VERSION=$(jq -r ".version" package.json)
 export TAG_NAME="v$PACKAGE_VERSION"
 
