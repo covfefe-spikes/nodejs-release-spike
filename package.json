@@ -1,6 +1,6 @@
 {
   "name": "@covfefe2/nodejs-release-spike",
-  "version": "1.1.7",
+  "version": "1.1.8",
 
   "engines": {
     "yarn": "^1.12.3",
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "echo 'no source files specified'",
-    "test": "echo 'Error: no test specifieddcdscs'"
+    "test": "echo 'Error: no test fafwfawe'"
   },
   "repository": {
     "type": "git",
